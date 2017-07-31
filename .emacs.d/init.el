@@ -47,3 +47,8 @@
 (setq-default auto-fill-function 'do-auto-fill)
 
 ;; (when window-system (set-frame-size (selected-frame) 197 54))
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+(windmove-default-keybindings)
