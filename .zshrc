@@ -138,3 +138,4 @@ alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caf
 
 alias keras="source deactivate; source activate keras; clear"
 alias sshdv="ssh -X giovanni_rescia@192.168.0.56"
+export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/asrlib':'/home/giovanni/coding/deepvision-asr/asrlib/asrlib/util'

@@ -52,3 +52,8 @@
 (ido-mode 1)
 
 (windmove-default-keybindings)
+
+(setq-default mode-line-buffer-identification
+              (let ((orig  (car mode-line-buffer-identification)))
+                `(:eval (cons (concat ,orig (abbreviate-file-name default-directory))
+                              (cdr mode-line-buffer-identification)))))
