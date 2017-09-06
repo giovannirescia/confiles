@@ -54,7 +54,7 @@ plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/share/zsh-antigen/antigen.zsh
+source ~/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
@@ -138,4 +138,5 @@ alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caf
 
 alias keras="source deactivate; source activate keras; clear"
 alias sshdv="ssh -X giovanni_rescia@192.168.0.56"
-export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/asrlib':'/home/giovanni/coding/deepvision-asr/asrlib/asrlib/util'
+export PYTHONPATH='/home/giovanni/coding/deepvision-asr/pepe/'
+export PYTHONPATH=$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.'

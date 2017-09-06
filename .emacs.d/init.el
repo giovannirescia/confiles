@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/custom_scripts/")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,7 +45,7 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-(setq-default auto-fill-function 'do-auto-fill)
+;;(setq-default auto-fill-function 'do-auto-fill)
 
 ;; (when window-system (set-frame-size (selected-frame) 197 54))
 (setq ido-enable-flex-matching t)
@@ -57,3 +58,6 @@
               (let ((orig  (car mode-line-buffer-identification)))
                 `(:eval (cons (concat ,orig (abbreviate-file-name default-directory))
                               (cdr mode-line-buffer-identification)))))
+
+(require 'move-lines)
+(move-lines-binding)
