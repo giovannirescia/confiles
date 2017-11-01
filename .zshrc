@@ -125,6 +125,7 @@ function precmd() {
 alias cs231='source deactivate; source activate cs231n; cd; clear'
 
 alias pep8='flake8 --ignore E501'
+alias pepe='flake8 --ignore E501'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -138,5 +139,16 @@ alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caf
 
 alias keras="source deactivate; source activate keras; clear"
 alias sshdv="ssh -X giovanni_rescia@192.168.0.56"
-export PYTHONPATH='/home/giovanni/coding/deepvision-asr/pepe/'
-export PYTHONPATH=$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.'
+export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/'
+export PYTHONPATH=$PYTHONPATH'scripts':$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.':$PYTHONPATH'asrlib/ivector'
+
+# LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib
+
+# MKL
+export LD_LIBRARY_PATH=$HOME/anaconda3/pkgs/mkl-11.3.3-0/lib/:$LD_LIBRARY_PATH:$HOME/soft/boost_1_65_1/stage/lib
+
+alias tf="source activate tensorflow"
+
+export TF_CPP_MIN_VLOG_LEVEL=3
+export TF_CPP_MIN_LOG_LEVEL=3

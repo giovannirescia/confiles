@@ -1,4 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/custom_scripts/")
+(add-to-list 'load-path "~/.emacs.d/themes/")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -7,6 +9,9 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-safe-themes
+   (quote
+    ("b2c0cc123b55ddc097f1dbf3751189f261dc9bb5a767b0b578e57818c7702c21" default)))
  '(inhibit-startup-screen t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -51,7 +56,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-
+(setq ido-auto-merge-work-directories-length -1)
 (windmove-default-keybindings)
 
 (setq-default mode-line-buffer-identification
