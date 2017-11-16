@@ -140,7 +140,7 @@ alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caf
 alias keras="source deactivate; source activate keras; clear"
 alias sshdv="ssh -X giovanni_rescia@192.168.0.56"
 export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/'
-export PYTHONPATH=$PYTHONPATH'scripts':$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.':$PYTHONPATH'asrlib/ivector'
+export PYTHONPATH=$PYTHONPATH'scripts':$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.':$PYTHONPATH'asrlib/ivector':$PYTHONPATH'asrlib/custom_layers'
 
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib
@@ -152,3 +152,26 @@ alias tf="source activate tensorflow"
 
 export TF_CPP_MIN_VLOG_LEVEL=3
 export TF_CPP_MIN_LOG_LEVEL=3
+
+dvreceive() {
+    port=6537;
+    echo "Waiting for files...";
+    nc -l -p $port | tar -zx;
+}
+
+dvsend () {
+    if [ $# -lt 2 ]
+    then
+        echo "dvsend <destination> <files>"
+        return 1
+    fi
+    dest=$1 
+    shift
+    if tar -zc "$@" | nc $dest 6537
+    then
+        echo "Successfully sent files"
+    else
+        echo "Error sending files. Is the destination listening?"
+        return 1
+    fi
+}
