@@ -175,3 +175,5 @@ dvsend () {
         return 1
     fi
 }
+
+source activate asr
