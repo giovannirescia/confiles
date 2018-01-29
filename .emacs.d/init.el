@@ -66,3 +66,4 @@
 
 (require 'move-lines)
 (move-lines-binding)
+(cd "/home/giovanni/coding/deepvision-asr/asrlib")

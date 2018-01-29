@@ -177,3 +177,9 @@ dvsend () {
 }
 
 source activate asr
+
+lola () {
+    nosetests "$1"  --nologcapture --nocapture
+}
+
+alias nosetests="lola"
