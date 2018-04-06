@@ -138,7 +138,7 @@ export PATH="/home/giovanni/anaconda3/bin:$PATH"
 alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caffe; clear"
 
 alias keras="source deactivate; source activate keras; clear"
-alias sshdv="ssh -X giovanni_rescia@192.168.0.56"
+alias sshdv="autossh -X giovanni_rescia@192.168.0.56"
 export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/'
 export PYTHONPATH=$PYTHONPATH'scripts':$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.':$PYTHONPATH'asrlib/ivector':$PYTHONPATH'asrlib/custom_layers'
 
@@ -183,3 +183,6 @@ lola () {
 }
 
 alias nosetests="lola"
+alias du="du -sh"
+alias pqpq="autossh -t -X ubuntu@34.216.20.157 'zsh -l'"
+export TF_CPP_MIN_LOG_LEVEL=3
