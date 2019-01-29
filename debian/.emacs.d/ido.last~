@@ -1,0 +1,37 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/giovanni/confiles/.emacs.d/" . "custom_scripts/")
+ ("/home/giovanni/confiles/" . ".emacs.d/")
+ ("/home/giovanni/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/giovanni/"
+ "/home/giovanni/confiles/.emacs.d/custom_scripts/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".zshrc"
+ ".emacs"
+ "move-lines.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/giovanni/" (23632 51390 405614 313000) ".AMD/" ".cache/" ".zcompdump-dvorak-5.0.7" "vlcsnap-2017-04-07-21h12m47s671.png" ".bash_history" ".local/" ".Xauthority" "Descargas/" "soft/" "Documentos/" ".emacs" ".dbus/" ".bash_logout" ".ICEauthority" ".gconf/" "Público/" ".zhsrc.bu" ".icons/" ".zsh_history" ".emacs.d/" "antigen.zsh" "confiles/" "Imágenes/" ".dmrc" ".profile" "Vídeos/" ".zshrc~" ".gnome2_private/" ".mozilla/" ".xsession-errors" "Plantillas/" ".face" ".ipython/" ".xsession-errors.old" ".gksu.lock" ".oh-my-zsh/" ".config/" "./" ".bashrc" ".gnome/" ".themes/" "Música/" "../" ".Upwork/" "Escritorio/" ".pki/" ".antigen/" "backup/" ".zshrc" ".emacs~" "anaconda3/" ".gimp-2.8/" ".gnome2/")
+
+ ("/home/giovanni/.emacs.d/" (23632 51124 701610 704000) "custom_scripts/" "./" "../" "ido.last")
+
+ ("/home/giovanni/confiles/.emacs.d/custom_scripts/" (23632 50689 413604 792000) "move-lines.el" "./" "../")
+
+ ("/home/giovanni/confiles/.emacs.d/" (23632 50689 413604 792000) "custom_scripts/" "init.el" "./" "../")
+
+ ("/home/giovanni/confiles/" (23632 50689 413604 792000) ".emacs.d/" "./" "../" ".tmux.conf" ".zshrc" ".git/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
