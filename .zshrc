@@ -8,6 +8,7 @@ export ZSH=/home/giovanni/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="intheloop"
 
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -50,26 +51,28 @@ ZSH_THEME="intheloop"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git python docker docker-compose)
 
 source ~/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle python
+antigen bundle command-not-found
+
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
+antigen apply
+
 zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -92,7 +95,7 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gg='git log --color --all --graph --format="%C(yellow)%h%C(reset) %C(green)%d%Creset %s %C(blue)[%cN]%Creset"'
+
 
 function preexec() {
   timer=${timer:-$SECONDS}
@@ -121,68 +124,32 @@ function precmd() {
   fi
 }
 
-
-alias cs231='source deactivate; source activate cs231n; cd; clear'
-
-alias pep8='flake8 --ignore E501'
-alias pepe='flake8 --ignore E501'
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # added by Anaconda3 4.3.0 installer
-export PATH="/home/giovanni/anaconda3/bin:$PATH"
+# export PATH="/home/giovanni/anaconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize
+source $ZSH/oh-my-zsh.sh
+alias gg='git log --color --all --graph --format="%C(yellow)%h%C(reset) %C(green)%d%Creset %s %C(blue)[%cN]%Creset"'
 
-# use this one for caffe
-#export PATH="/home/giovanni/anaconda2/bin:$PATH"
-alias caffe="source deactivate; source activate testcaffe; source ~/.pypaths/caffe; clear"
-
-alias keras="source deactivate; source activate keras; clear"
-alias sshdv="autossh -X giovanni_rescia@192.168.0.56"
-export PYTHONPATH='/home/giovanni/coding/deepvision-asr/asrlib/'
-export PYTHONPATH=$PYTHONPATH'scripts':$PYTHONPATH'asrlib/decoding':$PYTHONPATH'asrlib/layers':$PYTHONPATH'asrlib/preprocesing':$PYTHONPATH'systems/wavenet':$PYTHONPATH'asrlib':$PYTHONPATH'.':$PYTHONPATH'asrlib/ivector':$PYTHONPATH'asrlib/custom_layers'
-
-# LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/lib
-
-# MKL
-export LD_LIBRARY_PATH=$HOME/anaconda3/pkgs/mkl-11.3.3-0/lib/:$LD_LIBRARY_PATH:$HOME/soft/boost_1_65_1/stage/lib
-
-alias tf="source activate tensorflow"
-
-export TF_CPP_MIN_VLOG_LEVEL=3
-export TF_CPP_MIN_LOG_LEVEL=3
-
-dvreceive() {
-    port=6537;
-    echo "Waiting for files...";
-    nc -l -p $port | tar -zx;
-}
-
-dvsend () {
-    if [ $# -lt 2 ]
-    then
-        echo "dvsend <destination> <files>"
-        return 1
-    fi
-    dest=$1 
-    shift
-    if tar -zc "$@" | nc $dest 6537
-    then
-        echo "Successfully sent files"
+alias jn='jupyter notebook'
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/giovanni/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/giovanni/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/giovanni/anaconda3/etc/profile.d/conda.sh"
     else
-        echo "Error sending files. Is the destination listening?"
-        return 1
+        export PATH="/home/giovanni/anaconda3/bin:$PATH"
     fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias sshaline='ssh ubuntu@aline'
+alias sshadam='ssh -t tcruser@adam "zsh"'
+alias sshlindsey='ssh -t root@lindsey "zsh"'
+
+print-time() {
+    print -P '%F{yellow} %D{Date: %F Time: %T}%f'
 }
-
-source activate asr
-
-lola () {
-    nosetests "$1"  --nologcapture --nocapture
-}
-
-alias nosetests="lola"
-alias du="du -sh"
-alias pqpq="autossh -t -X ubuntu@34.216.20.157 'zsh -l'"
-export TF_CPP_MIN_LOG_LEVEL=3
+preexec_functions+=(print-time)

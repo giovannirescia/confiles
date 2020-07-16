@@ -1,3 +1,4 @@
+(set-face-attribute 'default nil :height 105)
 (add-to-list 'load-path "~/.emacs.d/custom_scripts/")
 (add-to-list 'load-path "~/.emacs.d/themes/")
 
@@ -66,5 +67,23 @@
 
 (require 'move-lines)
 (move-lines-binding)
-(cd "/home/giovanni/coding/deepvision-asr/asrlib")
 
+
+;; JEDI
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+;; Uncomment this, if you are in hurry
+;; (setq el-get-install-skip-emacswiki-recipes nil)
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(el-get 'sync)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
